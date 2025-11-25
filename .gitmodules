@@ -1,0 +1,3 @@
+[submodule "rte-rrtmgp"]
+	path = rte-rrtmgp
+	url = git@github.com:fmalatino/rte-rrtmgp.git

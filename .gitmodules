@@ -1,4 +1,0 @@
-[submodule "rte-rrtmgp"]
-	path = rte-rrtmgp
-	url = https://github.com/fmalatino/rte-rrtmgp.git
-	branch = single_cmake

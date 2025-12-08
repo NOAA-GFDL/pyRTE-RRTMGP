@@ -34,10 +34,8 @@ jobs:
 
       - name: Install pyRTE-RRTMGP
         run: |
-          cd ${GITHUB_WORKSPACE}
           pip install -v .
 
       - name: Run Tests
         run: |
-          cd ${GITHUB_WORKSPACE}
           pyrte_rrtmgp run_tests

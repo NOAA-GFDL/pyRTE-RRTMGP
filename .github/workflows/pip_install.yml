@@ -12,6 +12,11 @@ on:
     paths-ignore:
       - 'docs/**/*'
 
+# cancel running jobs if theres a newer push
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   pip_install_build:
     runs-on: ubuntu-latest
@@ -23,6 +28,9 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+
+      - name: Checkout hash that triggered CI
+        uses: actions/checkout@v5
 
       - name: Install pyRTE-RRTMGP
         run: |

@@ -37,14 +37,14 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - uses: fortran-lang/setup-fortran@v1
-        id: setup-fortran
-        with:
-          compiler: ${{ matrix.toolchain.compiler }}
-          version: ${{ matrix.toolchain.version }}
-      - run: |
-          ${{ env.FC }}
-          ${{ steps.setup-fortran.outputs.fc }}
+      # - uses: fortran-lang/setup-fortran@v1
+      #   id: setup-fortran
+      #   with:
+      #     compiler: ${{ matrix.toolchain.compiler }}
+      #     version: ${{ matrix.toolchain.version }}
+      # - run: |
+      #     ${{ env.FC }}
+      #     ${{ steps.setup-fortran.outputs.fc }}
           
 
       - name: Install conda and dependencies

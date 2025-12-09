@@ -64,8 +64,7 @@ jobs:
         run: |
           brew update
           brew install gcc
-          ln -s "$(brew --prefix)/bin/gfortran-"* /usr/local/bin/gfortran || true
-          ln -s "$(brew --prefix)/bin/gfortran-"* /opt/homebrew/bin/gfortran || true
+          echo "$(brew --prefix)/opt/gcc/bin" >> $GITHUB_PATH
 
       - name: Check Fortran compiler
         run: which gfortran

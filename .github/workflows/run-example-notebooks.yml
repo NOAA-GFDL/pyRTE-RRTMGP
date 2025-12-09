@@ -54,6 +54,9 @@ jobs:
       - name: Check out pyRTE
         uses: actions/checkout@v6
 
+      - name: Check Fortran compiler
+        run: which gfortran
+
       - name: Install pyRTE
         run: |
           echo `pwd`

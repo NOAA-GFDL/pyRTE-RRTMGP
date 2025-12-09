@@ -26,6 +26,7 @@ jobs:
 
     env:  # We need to add the path to the rrtmgp-data directory
       RRTMGP_DATA: /home/runner/work/pyRTE-RRTMGP/pyRTE-RRTMGP/rrtmgp-data
+      FC: gfortran
 
     # The setup-miniconda action needs this to activate miniconda
     defaults:
@@ -52,10 +53,6 @@ jobs:
       #
       - name: Check out pyRTE
         uses: actions/checkout@v6
-
-      - name: Install gfortran for macos
-        if: ${{ matrix.platform }} == "macos-13" or ${{ matrix.platform }} == "macos-latest"
-        run: brew install gcc
 
       - name: Install pyRTE
         run: |

@@ -53,10 +53,19 @@ jobs:
       - name: Check out pyRTE
         uses: actions/checkout@v6
 
-      - name: Setup Fortran
-        uses: fortran-lang/setup-fortran@v1
-        with:
-          compiler: gfortran
+      - name: Install gfortran on Ubuntu
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -v gfortran
+
+      - name: Install gfortran on macOS
+        if: runner.os == 'macOS'
+        run: |
+          brew update
+          brew install gcc
+          ln -s "$(brew --prefix)/bin/gfortran-"* /usr/local/bin/gfortran || true
+          ln -s "$(brew --prefix)/bin/gfortran-"* /opt/homebrew/bin/gfortran || true
 
       - name: Check Fortran compiler
         run: which gfortran

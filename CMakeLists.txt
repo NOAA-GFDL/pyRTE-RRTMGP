@@ -9,8 +9,8 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 FetchContent_Declare(
     rte_rrtmgp
-    GIT_REPOSITORY https://github.com/fmalatino/rte-rrtmgp.git
-    GIT_TAG single_cmake
+    GIT_REPOSITORY https://github.com/NOAA-GFDL/rte-rrtmgp.git
+    GIT_TAG pip_install
 )
 FetchContent_MakeAvailable(rte_rrtmgp)
 

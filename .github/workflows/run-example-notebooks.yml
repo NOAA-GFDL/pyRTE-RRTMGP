@@ -26,7 +26,6 @@ jobs:
 
     env:  # We need to add the path to the rrtmgp-data directory
       RRTMGP_DATA: /home/runner/work/pyRTE-RRTMGP/pyRTE-RRTMGP/rrtmgp-data
-      FC: gfortran
 
     # The setup-miniconda action needs this to activate miniconda
     defaults:
@@ -53,6 +52,11 @@ jobs:
       #
       - name: Check out pyRTE
         uses: actions/checkout@v6
+
+      - name: Setup Fortran
+        uses: fortran-lang/setup-fortran@v1
+        with:
+          compiler: gfortran
 
       - name: Check Fortran compiler
         run: which gfortran

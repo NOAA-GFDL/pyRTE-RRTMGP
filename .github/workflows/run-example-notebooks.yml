@@ -53,21 +53,10 @@ jobs:
       - name: Check out pyRTE
         uses: actions/checkout@v6
 
-      - name: Install gfortran on Ubuntu
-        if: runner.os == 'Linux'
-        run: |
-          sudo apt-get update
-          sudo apt-get install -v gfortran
-
-      - name: Install gfortran on macOS
+      - name: Find gfortran on macOS
         if: runner.os == 'macOS'
         run: |
-          brew update
-          brew install gcc
           echo "$(brew --prefix)/opt/gcc/bin" >> $GITHUB_PATH
-
-      - name: Check Fortran compiler
-        run: which gfortran
 
       - name: Install pyRTE
         run: |
